@@ -5,9 +5,9 @@ A simple application that accommodates a user's daily Todo list. This applicatio
 ## App View
 
 #### Light Mode
-![Todo Light Mode](https://user-images.githubusercontent.com/101037008/176592948-78409d30-2305-4d6c-84e0-7ced591ad5dd.png)
+![Todo Light Mode](assets/images/Todo%20Light%20Mode.png)
 #### Dark Mode
-![Dark Mode Screenshot](Todo%20Dark%20Mode.png)
+![Dark Mode Screenshot](assets/images/Todo%20Dark%20Mode.png)
 
 
 ## Documentation
