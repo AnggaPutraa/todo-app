@@ -12,6 +12,6 @@ A simple application that accommodates a user's daily Todo list. This applicatio
 
 ## Documentation
 
-The sqflite complate documentation can be found [here](https://pub.dev/packages/sqflite).
+- The sqflite complate documentation can be found [here](https://pub.dev/packages/sqflite).
 
-Check out dbstech Todo App [here](https://www.youtube.com/watch?v=2L8maZUY2hU&t=1s).
+- Check out dbstech Todo App [here](https://www.youtube.com/watch?v=2L8maZUY2hU&t=1s).
