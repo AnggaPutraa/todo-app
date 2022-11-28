@@ -1,4 +1,4 @@
-# Todo App
+# 📱 Todo App 📱
 
 ## 🚀 Track your daily activity 🚀
 A simple application that accommodates a user's daily Todo list. This application can store user Todo's on the device locally by using the Sqflite package and Path package to specify the database storage location in the device directory. In addition, implementing the bloc pattern as state management takes care of the business logic in the application. With bloc business logic, this app also supports light and dark modes. The Todo's card design was inspired by a Flutter Developer named dbestech.
