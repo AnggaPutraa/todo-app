@@ -6,7 +6,7 @@ import 'package:todo_app/features/todo/presentation/widget/todo_card.dart';
 import '../widget/custom_app_bar.dart';
 
 class TodoMainPage extends StatelessWidget {
-  const TodoMainPage({ Key? key }) : super(key: key);
+  const TodoMainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +19,23 @@ class TodoMainPage extends StatelessWidget {
               if (state is TodoLoadedState) {
                 return Expanded(
                   child: ListView.builder(
-                  itemCount: state.todos.length,
-                  itemBuilder: (context, index) {
-                    if (index == state.todos.length - 1) {
-                      return SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.08);
-                    }
-                    return TodoCard(
-                      todoItem: state.todos[index]
-                    );
-                    },
-                  )
+                    itemCount: state.todos.length,
+                    itemBuilder: (context, index) =>
+                        TodoCard(todoItem: state.todos[index]),
+                  ),
+                );
+              }
+              if (state is TodoErrorState) {
+                return const Expanded(
+                  child: Center(
+                    child: Text(
+                      'Ops!, something went wrong :(',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey),
+                    ),
+                  ),
                 );
               }
               return const Expanded(
@@ -43,12 +49,8 @@ class TodoMainPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context, 
-            MaterialPageRoute(
-              builder: (context) => const TodoInputPage()
-            )
-          );
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const TodoInputPage()));
         },
         child: const Icon(
           Icons.add,
