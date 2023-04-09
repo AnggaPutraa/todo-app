@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:todo_app/features/todo/data/model/todo.dart';
 import 'package:todo_app/features/todo/presentation/bloc/todo_bloc.dart';
 import '../widget/custom_text_field.dart';
@@ -94,9 +95,14 @@ class _TodoInputPageState extends State<TodoInputPage> {
                 child: BlocListener<TodoBloc, TodoState>(
                   listener: (context, state) {
                     if (state is TodoLoadedState) {
-                      ScaffoldMessenger.of(context)
-                        .showSnackBar(
-                          const SnackBar(content: Text("Todo Added")));
+                      Fluttertoast.showToast(
+                          msg: "Todo Added",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: const Color(0xFF22B07E),
+                          textColor: Colors.white,
+                          fontSize: 16.0);
                     }
                   },
                   child: ElevatedButton(
@@ -106,11 +112,10 @@ class _TodoInputPageState extends State<TodoInputPage> {
                               title: _titleController.text,
                               content: _contentController.text,
                               createdOn: _createdOnController,
-                              isFinished: _checkBoxController
-                          );
-                          context.read<TodoBloc>().add(
-                            TodoAddEvent(todo: todoItem)
-                          );
+                              isFinished: _checkBoxController);
+                          context
+                              .read<TodoBloc>()
+                              .add(TodoAddEvent(todo: todoItem));
                         }
                         Navigator.pop(context);
                       },
